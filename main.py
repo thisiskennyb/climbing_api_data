@@ -9,7 +9,7 @@ import pandas as pd
 
 
 #Change as needed
-area = 'old-wauhatchie-pike'
+area = 'cumberland'
 
 def update_csv(climbing_data, csv_filename):
     try:

@@ -1,6 +1,25 @@
 import pandas as pd
 import subprocess
 
+
+def push_to_github():
+    # Define the Git commands
+    git_commands = [
+        'git add .',
+        'git commit -m "committing"',
+        'git push origin master'
+    ]
+
+    # Execute each Git command
+    for command in git_commands:
+        result = subprocess.run(command, shell=True)
+        if result.returncode != 0:
+            print(f"Error executing command: {command}")
+            break
+        else:
+            print(f"Command executed successfully: {command}")
+
+
 def clean_csv(file, area):
     # Read the CSV file
     df = pd.read_csv(f'climbing_areas_input/{file}')
@@ -49,26 +68,12 @@ def clean_csv(file, area):
 
     # Write the cleaned data to a new CSV file in the 'climbing_areas' directory
     df.to_csv(f'climbing_areas_output/{area}.csv', index=False)
+    
+    push_to_github()
 
 
 
-# clean_csv('8aboulders.csv', 'horse-pens-40')
 
-def push_to_github():
-    # Define the Git commands
-    git_commands = [
-        'git add .',
-        'git commit -m "committing"',
-        'git push origin master'
-    ]
 
-    # Execute each Git command
-    for command in git_commands:
-        result = subprocess.run(command, shell=True)
-        if result.returncode != 0:
-            print(f"Error executing command: {command}")
-            break
-        else:
-            print(f"Command executed successfully: {command}")
+
             
-push_to_github()
