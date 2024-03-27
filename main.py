@@ -7,8 +7,9 @@ from clean import clean_csv
 import pandas as pd
 
 
+
 #Change as needed
-area = 'horse-pens-40'
+area = 'old-wauhatchie-pike'
 
 def update_csv(climbing_data, csv_filename):
     try:
@@ -145,4 +146,8 @@ def getClimbingData(crag):
 climbing_data = getClimbingData(f'{area}')
 update_csv(climbing_data, f'{area}-input.csv')
 clean_csv(f'{area}-input.csv', f'{area}')
+
+
+
+
 
