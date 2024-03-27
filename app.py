@@ -46,7 +46,7 @@ def pull_from_github():
     else:
         print(f"Command executed successfully: {pull_command}")
 
-def seed_database(csv_file_path):
+def seed_database():
     conn = psycopg2.connect(
         dbname=DB_NAME,
         user=DB_USER,
@@ -91,6 +91,5 @@ def seed_database(csv_file_path):
 
 if __name__ == '__main__':
     create_table()  # Ensure the table exists before seeding data
-    csv_file_path = 'climbing_areas_output/cumberland.csv'  # Update with the path to your CSV file
-    seed_database(csv_file_path)
+    seed_database()
     app.run(debug=True)
