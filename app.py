@@ -7,8 +7,8 @@ import os
 DB_NAME = 'boulder_db'
 DB_USER = 'postgres'
 DB_PASSWORD = 'postgres'
-DB_HOST = 'db'
-DB_PORT = '5432'  
+DB_HOST = 'localhost'
+DB_PORT = '5454'  
 
 app = Flask(__name__)
 
